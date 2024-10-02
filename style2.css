@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 html, body {
     height: 100%; /* Assicura che anche l'html occupi l'intero schermo */
     margin: 0;    /* Rimuove il margine predefinito */
@@ -13,18 +16,23 @@ body {
 .Elenco-selezione {
     display: flex;
     position: relative;
-    top: 180px;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    top: 27%;
+    height: 55%;
+    width: 100%;
     padding: 0 10% 0 10%;
+    
 }
 
 .selezione {
     position: inherit;
-    width: 600px;
-    height: 400px;
+    width: 30%;
+    height: 27vw;
     background-color: rgba(255, 0, 0, 40%);
-    border: 10px solid rgb(228, 0, 0);
+    border: 0.6vw solid rgb(228, 0, 0);
     border-radius: 15%;
-    margin: 0 30px 0 30px;
+   
     box-shadow: 10px 10px 0px 0 rgba(0, 0, 0, 0.8);
     transition: transform 0.6s ease, box-shadow 0.3s ease;
     overflow: hidden; /* Limita il raggio circolare all'interno del contenitore */
@@ -42,37 +50,34 @@ body {
 
 .icona {
     position: inherit;
-    margin: 0 auto;
-    padding: 0;
-    width: 70%;
+    margin: 0;
+    padding: 0 15%;
+    width: 100%;
     height: 50%;
     top: 10%;
     transition: all 1s ease;
 }
 
 p {
-    position: inherit;
+    position: relative;
     left: -14%;
-    font-size: 1.4em;
+    font-size: 1.5vw;
     width: 130%;
     opacity: 1;
-    transition: opacity 0.6s ease; /* Transizione graduale sull'opacità */
     pointer-events: none; /* Evita che interferisca col mouse */
     text-align: center;
-    
-    
-    
+    transition: opacity 0.5s ease, transform 1s ease;
 }
 
 .selezione:hover p {
     opacity: 0; /* Quando si passa il mouse su .selezione, l'opacità va a 0 */
-    width: 130%;
+    transform: translate(0px, 60px); /* Sposta l'elemento di 60px in basso */
 }
 
 .selezione:hover .icona {
-    width: 100%; /* Ingrandisce l'icona al 100% del contenitore */
+    width: 120%; /* Ingrandisce l'icona al 100% del contenitore */
     height: auto;
-    transform: translate(-5px, -20px);
+    transform: translate(-35px, -20px);
 }
 
 .selezione::before {
@@ -93,3 +98,4 @@ p {
     height: 130%;
     background-color: rgb(228, 0, 0); /* Trasforma il background in rosso */
 }
+/*TODO: rendere responsive il sito alle grandezze 325-375-414-480-768-1024-1366-1440-1920*/
