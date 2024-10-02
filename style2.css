@@ -1,0 +1,95 @@
+html, body {
+    height: 100%; /* Assicura che anche l'html occupi l'intero schermo */
+    margin: 0;    /* Rimuove il margine predefinito */
+    padding: 0;   /* Rimuove il padding predefinito */
+}
+
+body {
+    width: 100%;  /* Larghezza del 100% del viewport */
+    min-height: 100vh; /* Garantisce che il body riempia l'altezza visibile */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Elenco-selezione {
+    display: flex;
+    position: relative;
+    top: 180px;
+    padding: 0 10% 0 10%;
+}
+
+.selezione {
+    position: inherit;
+    width: 600px;
+    height: 400px;
+    background-color: rgba(255, 0, 0, 40%);
+    border: 10px solid rgb(228, 0, 0);
+    border-radius: 15%;
+    margin: 0 30px 0 30px;
+    box-shadow: 10px 10px 0px 0 rgba(0, 0, 0, 0.8);
+    transition: transform 0.6s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Limita il raggio circolare all'interno del contenitore */
+    cursor: pointer;
+}
+
+.selezione:hover {
+    transform: translate(-10px, -10px); /* Sposta l'elemento a sinistra e verso l'alto */
+    box-shadow: 20px 20px 0px 0 rgba(0, 0, 0, 0.8); /* Sposta l'ombra a destra e verso il basso */
+}
+
+.Nuovo {
+    
+}
+
+.icona {
+    position: inherit;
+    margin: 0 auto;
+    padding: 0;
+    width: 70%;
+    height: 50%;
+    top: 10%;
+    transition: all 1s ease;
+}
+
+p {
+    position: inherit;
+    left: -14%;
+    font-size: 1.4em;
+    width: 130%;
+    opacity: 1;
+    transition: opacity 0.6s ease; /* Transizione graduale sull'opacità */
+    pointer-events: none; /* Evita che interferisca col mouse */
+    text-align: center;
+    
+    
+    
+}
+
+.selezione:hover p {
+    opacity: 0; /* Quando si passa il mouse su .selezione, l'opacità va a 0 */
+    width: 130%;
+}
+
+.selezione:hover .icona {
+    width: 100%; /* Ingrandisce l'icona al 100% del contenitore */
+    height: auto;
+    transform: translate(-5px, -20px);
+}
+
+.selezione::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgb(45, 45, 45); /* Colore del raggio */
+    border-radius: 50%; /* Forma circolare */
+    transform: translate(-50%, -50%); /* Centra il cerchio iniziale */
+    transition: width 1s ease, height 1s ease, background-color 1s ease;
+}
+
+.selezione:hover::before {
+    width: 150%; /* Espande il cerchio fino a coprire l'intera area */
+    height: 130%;
+    background-color: rgb(228, 0, 0); /* Trasforma il background in rosso */
+}
